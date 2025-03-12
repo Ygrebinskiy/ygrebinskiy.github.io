@@ -14,3 +14,73 @@
 ::-webkit-scrollbar-thumb{
   background: linear-gradient(to bottom, rgb(0,62, 196), rgb(184, 0, 153));
 }
+
+.logo {
+  width: 80px;
+  height: 100%;
+}
+
+.photo {
+  width: 100%;
+  height: 80px;
+}
+
+@media (width >= 40rem){
+  .photo {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+@media (width >= 48rem){
+  .photo {
+    width: 100%;
+    height: 120px;
+  }
+}
+
+.projectPhoto {
+  width: 400px;
+  height: 100%;
+  max-width: 500px;
+}
+
+.bounce {
+  /* position:fixed; */
+  left:50%;
+  bottom:0;
+  margin-top:-25px;
+  margin-left:-25px;
+  height:50px;
+  width:50px;
+  color: white;
+  -webkit-animation:bounce 1s infinite;
+  -moz-animation:bounce 1s infinite;
+  -o-animation:bounce 1s infinite;
+  animation:bounce 1s infinite;
+
+}
+
+@-webkit-keyframes bounce {
+  0%       { bottom:0px; }
+  50%      { bottom:15px; }
+  100%     {bottom:30;}
+}
+
+ @-moz-keyframes bounce {
+  0%       { bottom:0px; }
+  50%      { bottom:15px; }
+  100%     {bottom:30;}
+}
+
+ @-o-keyframes bounce {
+  0%       { bottom:0px; }
+  50%      { bottom:15px; }
+  100%     {bottom:30;}
+}
+
+ @keyframes bounce {
+  0%       { bottom:0px; }
+  50%      { bottom:15px; }
+  100%     {bottom:30;}
+}

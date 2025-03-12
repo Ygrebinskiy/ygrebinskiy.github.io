@@ -3,13 +3,12 @@ import {Link} from "react-router"
 import {projectsData} from "./../Project";
 
 const ProjectCard = ({project}) => {
-    console.log(project)
     return (
         <ScrollReveal>
             <div className="flex flex-col items-center gap-8 md:flex-row md:gap-24">
                 
                 <Link to={`/${project.windowURL}`}>
-                <img src={project.image} alt="" className="w-full cursor-pointer rounded-2xl transition-all duration-300 hover:scale-105 md:w-[500px]" />
+                <img src={project.image} alt="" className="projectPhoto cursor-pointer rounded-2xl transition-all duration-300 hover:scale-105 md:w-[500px]" />
                 </Link>
                 
                 <div className="flex flex-col gap-5">
