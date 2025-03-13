@@ -52,7 +52,7 @@ const Projects = () => {
             <ScrollReveal>    
                 <h1 className="text-4xl font-light text-white md:text-6xl">My Projects</h1>
             </ScrollReveal>
-
+            
             <div className="flex w-full max-w-[1000px] flex-col gap-16 text-white">{projectsData.map((project, index) => (
                 <ProjectCard key={index} project={project}/>
             ))}</div>

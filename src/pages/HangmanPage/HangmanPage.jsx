@@ -4,6 +4,8 @@ import { languages } from "./languages"
 import { getFarewellText, getRandomWord } from "./utils"
 import Confetti from "react-confetti"
 import { useWindowSize } from 'react-use'
+import HangmanStyle from './../../Hangman.module.css'
+import Navbar from "../../components/Navbar"
 
 export default function AssemblyEndgame() {
     // State values
@@ -44,10 +46,10 @@ export default function AssemblyEndgame() {
             backgroundColor: lang.backgroundColor,
             color: lang.color
         }
-        const className = clsx("chip", isLanguageLost && "lost")
+
         return (
             <span
-                className={className}
+                className={`${HangmanStyle.HangmanSpan} ${HangmanStyle.chip} ${isLanguageLost && HangmanStyle.lost}`}
                 style={styles}
                 key={lang.name}
             >
@@ -58,11 +60,9 @@ export default function AssemblyEndgame() {
 
     const letterElements = currentWord.split("").map((letter, index) => {
         const shouldRevealLetter = isGameLost || guessedLetters.includes(letter)
-        const letterClassName = clsx(
-            isGameLost && !guessedLetters.includes(letter) && "missed-letter"
-        )
+        
         return (
-            <span key={index} className={letterClassName}>
+            <span key={index} className={`${HangmanStyle.HangmanSpan} ${isGameLost && !guessedLetters.includes(letter) && HangmanStyle.missedLetter}`}>
                 {shouldRevealLetter ? letter.toUpperCase() : ""}
             </span>
         )
@@ -72,14 +72,10 @@ export default function AssemblyEndgame() {
         const isGuessed = guessedLetters.includes(letter)
         const isCorrect = isGuessed && currentWord.includes(letter)
         const isWrong = isGuessed && !currentWord.includes(letter)
-        const className = clsx({
-            correct: isCorrect,
-            wrong: isWrong
-        })
 
         return (
             <button
-                className={className}
+                className={`${isCorrect && HangmanStyle.correct} ${isWrong && HangmanStyle.wrong}`}
                 key={letter}
                 disabled={isGameOver}
                 aria-disabled={guessedLetters.includes(letter)}
@@ -91,7 +87,7 @@ export default function AssemblyEndgame() {
         )
     })
 
-    const gameStatusClass = clsx("game-status", {
+    const gameStatusClass = clsx("gameStatus", {
         won: isGameWon,
         lost: isGameLost,
         farewell: !isGameOver && isLastGuessIncorrect
@@ -100,7 +96,7 @@ export default function AssemblyEndgame() {
     function renderGameStatus() {
         if (!isGameOver && isLastGuessIncorrect) {
             return (
-                <p className="farewell-message">
+                <p className={HangmanStyle.farewellMessage}>
                     {getFarewellText(languages[wrongGuessCount - 1].name)}
                 </p>
             )
@@ -127,63 +123,45 @@ export default function AssemblyEndgame() {
     }
 
     return (
-        <main>
-            <header>
-                <h1>Assembly: Endgame</h1>
-                <p>Guess the word within 8 attempts to keep the
-                programming world safe from Assembly!</p>
-            </header>
-            
-            <section>
-                {isGameWon &&
-                <Confetti width={width} height={height}
-                /> }
-            </section>
-            
-            <section
-                aria-live="polite"
-                role="status"
-                className={gameStatusClass}
-            >
-                {renderGameStatus()}
-            </section>
+        <>
+            <Navbar />
+            <main className={HangmanStyle.HangmanBody}>
+                <header className={HangmanStyle.HangmanHeader}>
+                    <h1>Assembly: Endgame</h1>
+                    <p>Guess the word within 8 attempts to keep the
+                    programming world safe from Assembly!</p>
+                </header>
+                
+                <section className={HangmanStyle.HangmanSection}>
+                    {isGameWon &&
+                    <Confetti width={width} height={height}
+                    /> }
+                </section>
+                
+                <section
+                    className={`${HangmanStyle.HangmanSection} ${HangmanStyle.gameStatus} ${isGameWon && HangmanStyle.won} ${isGameLost && HangmanStyle.lost} ${!isGameOver && isLastGuessIncorrect && HangmanStyle.farewell   }`}
+                >
+                    {renderGameStatus()}
+                </section>
 
-            <section className="language-chips">
-                {languageElements}
-            </section>
+                <section className={`${HangmanStyle.HangmanSection} ${HangmanStyle.languageChips}`}>
+                    {languageElements}
+                </section>
 
-            <section className="word">
-                {letterElements}
-            </section>
+                <section className={`${HangmanStyle.HangmanSection} ${HangmanStyle.word}`}>
+                    {letterElements}
+                </section>
 
-            {/* Combined visually-hidden aria-live region for status updates */}
-            <section
-                className="sr-only"
-                aria-live="polite"
-                role="status"
-            >
-                <p>
-                    {currentWord.includes(lastGuessedLetter) ?
-                        `Correct! The letter ${lastGuessedLetter} is in the word.` :
-                        `Sorry, the letter ${lastGuessedLetter} is not in the word.`
-                    }
-                    You have {numGuessesLeft} attempts left.
-                </p>
-                <p>Current word: {currentWord.split("").map(letter =>
-                    guessedLetters.includes(letter) ? letter + "." : "blank.")
-                    .join(" ")}</p>
+                <section className={`${HangmanStyle.HangmanSection} ${HangmanStyle.keyboard}`}>
+                    {keyboardElements}
+                </section>
 
-            </section>
-
-            <section className="keyboard">
-                {keyboardElements}
-            </section>
-
-            {isGameOver &&
-                <button
-                    className="new-game"
-                    onClick={startNewGame}
-                >New Game</button>}
-        </main>
+                {isGameOver &&
+                    <button
+                        className={`${HangmanStyle.HangmanButton} ${HangmanStyle.newGame}`}
+                        onClick={startNewGame}
+                    >New Game</button>}
+            </main>
+        </>
     )
 }

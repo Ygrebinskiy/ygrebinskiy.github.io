@@ -2,7 +2,6 @@ import TenziImage from "./assets/Tenzi.jpg"
 import HangMan from "./assets/Hangman2.png"
 import Heatmap from "./assets/Heatmap.jpeg"
 import Wordle from "./assets/wordle.webp"
-import image5 from "./assets/5.png"
 
 export const projectsData = [
     {
@@ -30,13 +29,6 @@ export const projectsData = [
         image: Wordle,
         title: "Wordle",
         description: "Want to practice your Wordle skills in your downtime? This is the place to do it! ",
-        technologies: ["HTML", "CSS", "React"],
-        windowURL: ""
-    },
-    {
-        image: image5,
-        title: "Project 5",
-        description: "Sample description",
         technologies: ["HTML", "CSS", "React"],
         windowURL: ""
     }
