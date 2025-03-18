@@ -1,4 +1,4 @@
-import image from "./../assets/image.jpg"
+import image from "./../assets/profile2.jpg"
 import {motion} from "framer-motion"
 import { IoIosArrowDown } from "react-icons/io";
 

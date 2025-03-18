@@ -17,7 +17,7 @@ const Navbar = () => {
             <HashLink to="/#home">
             <img src={logo} className="logo" />
             </HashLink>
-            
+
             <ul className="hidden md:flex gap-10">
                 <HashLink to="/#home" className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100">
                     <li>Home</li>
@@ -35,11 +35,15 @@ const Navbar = () => {
 
             <ul className="hidden md:flex gap-5">
                 <li href="#home" className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100">
+                <Link to="https://www.linkedin.com/in/yevgeniy-grebinskiy">
                     <BsLinkedin />
+                </Link>
                 </li>
 
                 <li href="#home" className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100">
-                    <BsGithub />
+                    <Link to="https://github.com/Ygrebinskiy">
+                        <BsGithub />
+                    </Link>
                 </li>
             </ul>
 
@@ -62,12 +66,16 @@ const Navbar = () => {
                         </a>
                     </ul>
                     <ul className="flex flex-wrap gap-5">
-                        <li href="#home" className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100">
-                            <BsLinkedin />
+                        <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100">
+                            <Link to="https://www.linkedin.com/in/yevgeniy-grebinskiy">
+                                <BsLinkedin />
+                            </Link>
                         </li>
 
                         <li href="#home" className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100">
-                            <BsGithub />
+                            <Link to="https://github.com/Ygrebinskiy">
+                                <BsGithub />
+                            </Link>
                         </li>
                     </ul>
                 </div>
