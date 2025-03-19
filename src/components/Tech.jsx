@@ -37,7 +37,7 @@ const Tech = () => {
             </motion.h1>
 
             <div className="flex flex-wrap items-center justify-center gap-10 p-5">
-                <MotionBlock variants={variants} logo={<img src={python} className="photo cursor-pointer text-[80px] text-blue-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"/>} />
+                <MotionBlock variants={variants} logo={<img src={python} className="photo cursor-pointer text-[80px] aspect-square text-blue-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"/>} />
                 
                 <MotionBlock variants={variants} logo={<img src={aws} className="photo cursor-pointer text-[80px] text-blue-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]"/>} />
                 
