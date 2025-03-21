@@ -6,6 +6,7 @@ import TenziesPage from './pages/TenziesPage/TenziesPage.jsx'
 import HangmanPage from './pages/HangmanPage/HangmanPage.jsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+// Checking if this changes anything
 
 const router = createBrowserRouter([{
   path: '/',
