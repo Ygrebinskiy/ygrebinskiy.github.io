@@ -6,7 +6,7 @@ import Projects from '../../components/Projects'
 import Contact from '../../components/Contact'
 
 function App() {
-
+  /* Testing! */
   return (
     <> 
       <div className="fixed -z-10 min-h-screen w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
